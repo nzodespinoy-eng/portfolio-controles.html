@@ -4,28 +4,32 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Portfolio — Enzo Despinoy</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&family=Merriweather:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
 <style>
   :root {
-    --cream: #faf8f4;
-    --ink: #1a1714;
-    --ink-mid: #4a4540;
-    --ink-light: #8c8580;
-    --ink-faint: #c8c2ba;
-    --accent: #1d3a2f;
-    --accent-light: #edf3ef;
-    --rule: #ddd8d0;
+    --navy: #1B2A4A;
+    --navy-dark: #131f36;
+    --navy-light: #2c4070;
+    --navy-faint: #e8ecf4;
+    --navy-mid: #d0d8e8;
+    --text: #1a1a2e;
+    --text-mid: #4a5568;
+    --text-light: #8896aa;
+    --rule: #d0d8e8;
+    --white: #ffffff;
+    --bg: #f4f6fa;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
   body {
-    background: var(--cream);
-    color: var(--ink);
-    font-family: 'Jost', sans-serif;
-    font-weight: 300;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Raleway', sans-serif;
+    font-weight: 400;
   }
 
+  /* BOUTON EXPORT */
   .export-bar {
     position: fixed;
     top: 24px;
@@ -34,14 +38,15 @@
   }
 
   .btn-export {
-    background: var(--accent);
+    background: var(--navy);
     color: #fff;
     border: none;
-    padding: 11px 24px;
-    font-family: 'Jost', sans-serif;
-    font-size: 13px;
-    font-weight: 400;
-    letter-spacing: 0.07em;
+    padding: 11px 22px;
+    font-family: 'Raleway', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
     cursor: pointer;
     border-radius: 2px;
     transition: background 0.2s;
@@ -50,52 +55,58 @@
     gap: 9px;
   }
 
-  .btn-export:hover { background: #122619; }
+  .btn-export:hover { background: var(--navy-dark); }
 
   @media print {
     .export-bar { display: none; }
     body { background: white; }
     .page { box-shadow: none; margin: 0; }
+    tr { page-break-inside: avoid; }
   }
 
+  /* PAGE */
   .page {
-    max-width: 880px;
+    max-width: 900px;
     margin: 48px auto;
-    background: white;
-    box-shadow: 0 2px 32px rgba(0,0,0,0.07);
-    padding: 72px 80px 80px;
+    background: var(--white);
+    box-shadow: 0 2px 24px rgba(27,42,74,0.10);
   }
 
-  /* EN-TÊTE */
+  /* BANDEAU HEADER */
   .doc-header {
+    background: var(--navy);
+    padding: 48px 56px 40px;
     display: grid;
     grid-template-columns: 1fr auto;
     align-items: end;
-    padding-bottom: 28px;
-    border-bottom: 2px solid var(--ink);
-    margin-bottom: 52px;
+    gap: 32px;
   }
 
   .doc-pretitle {
-    font-size: 11px;
-    font-weight: 400;
-    letter-spacing: 0.2em;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.25em;
     text-transform: uppercase;
-    color: var(--ink-light);
-    margin-bottom: 12px;
+    color: rgba(255,255,255,0.55);
+    margin-bottom: 10px;
   }
 
   .doc-name {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 56px;
-    font-weight: 300;
+    font-family: 'Raleway', sans-serif;
+    font-size: 48px;
+    font-weight: 700;
     line-height: 1;
-    color: var(--ink);
+    color: var(--white);
+    letter-spacing: 0.02em;
   }
 
-  .doc-name em {
-    font-style: italic;
-    color: var(--accent);
+  .doc-subtitle {
+    margin-top: 10px;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.6);
   }
 
   .doc-meta {
@@ -104,67 +115,80 @@
 
   .doc-meta p {
     font-size: 12px;
-    color: var(--ink-light);
+    color: rgba(255,255,255,0.6);
     line-height: 2;
     letter-spacing: 0.03em;
+    font-weight: 300;
+  }
+
+  .doc-meta p strong {
+    color: rgba(255,255,255,0.9);
+    font-weight: 600;
+  }
+
+  /* CORPS */
+  .doc-body {
+    padding: 52px 56px 60px;
   }
 
   /* INTRO */
   .intro {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 56px;
-    margin-bottom: 56px;
+    gap: 48px;
+    margin-bottom: 52px;
     padding-bottom: 44px;
     border-bottom: 1px solid var(--rule);
   }
 
   .intro-text {
-    font-size: 14px;
+    font-size: 13.5px;
     line-height: 1.85;
-    color: var(--ink-mid);
+    color: var(--text-mid);
+    font-weight: 400;
   }
 
   .intro-text strong {
-    color: var(--ink);
-    font-weight: 500;
+    color: var(--navy);
+    font-weight: 700;
   }
 
   .stats-block {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 28px;
+    gap: 24px;
   }
 
   .stat-item {
-    border-left: 2px solid var(--accent);
+    border-left: 3px solid var(--navy);
     padding-left: 14px;
   }
 
   .stat-num {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 38px;
-    font-weight: 300;
-    color: var(--accent);
+    font-family: 'Raleway', sans-serif;
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--navy);
     line-height: 1;
     margin-bottom: 5px;
   }
 
   .stat-lbl {
     font-size: 11px;
-    color: var(--ink-light);
+    color: var(--text-light);
     letter-spacing: 0.03em;
     line-height: 1.5;
+    font-weight: 400;
   }
 
-  /* SECTION */
+  /* SECTION TITRE */
   .section-heading {
-    font-size: 10.5px;
-    font-weight: 500;
-    letter-spacing: 0.22em;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.25em;
     text-transform: uppercase;
-    color: var(--ink-light);
-    margin-bottom: 24px;
+    color: var(--navy);
+    margin-bottom: 22px;
     display: flex;
     align-items: center;
     gap: 16px;
@@ -173,8 +197,8 @@
   .section-heading::after {
     content: '';
     flex: 1;
-    height: 1px;
-    background: var(--rule);
+    height: 2px;
+    background: var(--navy);
   }
 
   /* TABLE */
@@ -185,69 +209,77 @@
   }
 
   .controls-table thead tr {
-    border-bottom: 1px solid var(--ink);
+    background: var(--navy-faint);
+    border-bottom: 2px solid var(--navy);
   }
 
   .controls-table th {
     font-size: 10px;
-    font-weight: 500;
-    letter-spacing: 0.16em;
+    font-weight: 700;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: var(--ink-light);
-    padding: 0 14px 13px 0;
+    color: var(--navy);
+    padding: 12px 14px 12px 0;
     text-align: left;
   }
 
-  .controls-table th:last-child { padding-right: 0; }
+  .controls-table th:first-child { padding-left: 14px; }
+  .controls-table th:last-child { padding-right: 14px; }
 
   .controls-table tbody tr {
     border-bottom: 1px solid var(--rule);
+    transition: background 0.15s;
   }
 
-  .controls-table tbody tr:hover td {
-    background: var(--accent-light);
+  .controls-table tbody tr:hover {
+    background: var(--navy-faint);
   }
 
   .controls-table td {
-    padding: 20px 14px 20px 0;
+    padding: 18px 14px 18px 0;
     vertical-align: top;
   }
 
-  .controls-table td:last-child { padding-right: 0; }
+  .controls-table td:first-child { padding-left: 14px; }
+  .controls-table td:last-child { padding-right: 14px; }
 
   .td-num {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 14px;
-    color: var(--ink-faint);
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--text-light);
     white-space: nowrap;
-    width: 36px;
-    padding-top: 22px !important;
+    width: 38px;
+    letter-spacing: 0.05em;
+    padding-top: 20px !important;
   }
 
-  .td-title { width: 210px; }
+  .td-title { width: 200px; }
 
   .ctrl-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 19px;
-    font-weight: 500;
-    color: var(--ink);
-    line-height: 1.25;
-    margin-bottom: 5px;
+    font-family: 'Raleway', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1.3;
+    margin-bottom: 4px;
+    letter-spacing: 0.01em;
   }
 
   .ctrl-date {
     font-size: 11px;
-    color: var(--ink-light);
-    letter-spacing: 0.03em;
+    color: var(--text-light);
+    letter-spacing: 0.04em;
+    font-weight: 400;
   }
 
   .td-objectif {
-    font-size: 13px;
+    font-size: 12.5px;
     line-height: 1.7;
-    color: var(--ink-mid);
+    color: var(--text-mid);
+    font-weight: 400;
   }
 
-  .td-reglement { width: 170px; }
+  .td-reglement { width: 175px; }
 
   .regl-tags {
     display: flex;
@@ -256,82 +288,90 @@
   }
 
   .regl-tag {
-    font-size: 10.5px;
-    color: var(--accent);
-    letter-spacing: 0.03em;
-    background: var(--accent-light);
-    padding: 3px 9px;
-    border-radius: 2px;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    color: var(--navy);
+    background: var(--navy-faint);
+    border-left: 2px solid var(--navy);
+    padding: 3px 8px;
     display: inline-block;
     width: fit-content;
   }
 
   /* DOMAINES */
   .domains-section {
-    margin-top: 44px;
+    margin-top: 40px;
     padding-top: 36px;
     border-top: 1px solid var(--rule);
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 28px;
+    gap: 24px;
+  }
+
+  .domain-block {
+    background: var(--navy-faint);
+    padding: 20px 18px;
+    border-top: 3px solid var(--navy);
   }
 
   .domain-name {
-    font-size: 10.5px;
-    font-weight: 500;
-    letter-spacing: 0.12em;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
     text-transform: uppercase;
-    color: var(--ink);
+    color: var(--navy);
     margin-bottom: 10px;
-    padding-bottom: 10px;
-    border-bottom: 1px solid var(--rule);
   }
 
   .domain-count {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 32px;
-    font-weight: 300;
-    color: var(--accent);
+    font-size: 34px;
+    font-weight: 700;
+    color: var(--navy);
     line-height: 1;
-    margin-bottom: 5px;
+    margin-bottom: 6px;
   }
 
   .domain-sub {
-    font-size: 11.5px;
-    color: var(--ink-light);
+    font-size: 11px;
+    color: var(--text-light);
     line-height: 1.5;
+    font-weight: 400;
   }
 
   /* PIED */
   .doc-footer {
-    margin-top: 60px;
-    padding-top: 20px;
-    border-top: 2px solid var(--ink);
+    background: var(--navy);
+    padding: 18px 56px;
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
 
   .footer-left {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 14px;
-    color: var(--ink-light);
+    font-size: 12px;
+    color: rgba(255,255,255,0.6);
+    font-weight: 300;
     font-style: italic;
+    font-family: 'Merriweather', serif;
   }
 
   .footer-right {
-    font-size: 11px;
-    color: var(--ink-faint);
-    letter-spacing: 0.06em;
+    font-size: 10px;
+    color: rgba(255,255,255,0.35);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 400;
   }
 
   @media (max-width: 680px) {
-    .page { padding: 36px 24px; margin: 0; }
-    .doc-header { grid-template-columns: 1fr; gap: 20px; }
+    .doc-header { padding: 36px 24px 28px; grid-template-columns: 1fr; }
     .doc-meta { text-align: left; }
-    .intro { grid-template-columns: 1fr; gap: 32px; }
+    .doc-body { padding: 36px 24px; }
+    .intro { grid-template-columns: 1fr; gap: 28px; }
     .domains-section { grid-template-columns: 1fr 1fr; }
     .td-objectif { display: none; }
+    .doc-footer { padding: 16px 24px; flex-direction: column; gap: 6px; text-align: center; }
   }
 </style>
 </head>
@@ -339,7 +379,7 @@
 
 <div class="export-bar">
   <button class="btn-export" onclick="window.print()">
-    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
       <path d="M12 15V3M12 15l-4-4M12 15l4-4M4 20h16"/>
     </svg>
     Exporter en PDF
@@ -348,255 +388,265 @@
 
 <div class="page">
 
+  <!-- HEADER -->
   <div class="doc-header">
     <div>
       <p class="doc-pretitle">Portfolio · Contrôle permanent de second niveau</p>
-      <div class="doc-name">Enzo<br><em>Despinoy</em></div>
+      <div class="doc-name">ENZO DESPINOY</div>
+      <p class="doc-subtitle">Contrôleur interne | Master Finance &amp; Contrôle</p>
     </div>
     <div class="doc-meta">
-      <p>Milleis Banque Privée</p>
+      <p><strong>Milleis Banque Privée</strong></p>
       <p>Direction du contrôle permanent</p>
       <p>et des risques opérationnels</p>
-      <p style="margin-top:8px;">Septembre 2025 – août 2026</p>
+      <p style="margin-top:8px;"><strong>Sept. 2025 – août 2026</strong></p>
     </div>
   </div>
 
-  <div class="intro">
-    <p class="intro-text">
-      Dans le cadre de mon alternance au sein de la Direction du contrôle permanent et des risques opérationnels de Milleis Banque Privée, j'ai réalisé <strong>11 contrôles de second niveau</strong> en six mois, sur des périmètres bancaire et assurantiel. Ces travaux s'inscrivent dans le plan de contrôle opérationnel 2025 (PCO 2025), défini conformément à l'arrêté du 3 novembre 2014 relatif au contrôle interne.
-    </p>
-    <div class="stats-block">
-      <div class="stat-item">
-        <div class="stat-num">11</div>
-        <div class="stat-lbl">Contrôles de second niveau réalisés</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-num">6</div>
-        <div class="stat-lbl">Mois d'exercice</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-num">4</div>
-        <div class="stat-lbl">Référentiels réglementaires mobilisés</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-num">2</div>
-        <div class="stat-lbl">Périmètres couverts — banque et assurance</div>
+  <!-- CORPS -->
+  <div class="doc-body">
+
+    <!-- INTRO -->
+    <div class="intro">
+      <p class="intro-text">
+        Dans le cadre de mon alternance au sein de la Direction du contrôle permanent et des risques opérationnels de Milleis Banque Privée, j'ai réalisé <strong>11 contrôles de second niveau</strong> en six mois, sur des périmètres bancaire et assurantiel. Ces travaux s'inscrivent dans le plan de contrôle opérationnel 2025 (PCO 2025), défini conformément à l'arrêté du 3 novembre 2014 relatif au contrôle interne.
+      </p>
+      <div class="stats-block">
+        <div class="stat-item">
+          <div class="stat-num">11</div>
+          <div class="stat-lbl">Contrôles de second niveau réalisés</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">6</div>
+          <div class="stat-lbl">Mois d'exercice</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">4</div>
+          <div class="stat-lbl">Référentiels réglementaires mobilisés</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">2</div>
+          <div class="stat-lbl">Périmètres couverts — banque et assurance</div>
+        </div>
       </div>
     </div>
+
+    <!-- TABLE -->
+    <p class="section-heading">Détail des contrôles effectués</p>
+
+    <table class="controls-table">
+      <thead>
+        <tr>
+          <th>N°</th>
+          <th>Domaine</th>
+          <th>Objectif du contrôle</th>
+          <th>Réglementation(s)</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <tr>
+          <td class="td-num">01</td>
+          <td class="td-title">
+            <div class="ctrl-title">Filière crédit — octroi et délégations</div>
+            <div class="ctrl-date">Oct. 2025</div>
+          </td>
+          <td class="td-objectif">Vérifier le respect des délégations de pouvoirs et l'exhaustivité des modalités d'octroi pour l'ensemble des crédits accordés. Validation arithmétique des tableaux d'amortissement.</td>
+          <td class="td-reglement">
+            <div class="regl-tags">
+              <span class="regl-tag">Arrêté 3 nov. 2014</span>
+              <span class="regl-tag">Code monétaire et financier</span>
+            </div>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="td-num">02</td>
+          <td class="td-title">
+            <div class="ctrl-title">Intégration des critères ESG dans le conseil</div>
+            <div class="ctrl-date">Oct. 2025</div>
+          </td>
+          <td class="td-objectif">Contrôler la collecte des préférences de durabilité dans les profils KYC et l'adéquation des produits proposés (fonds ISR, obligations vertes) aux convictions extra-financières des clients.</td>
+          <td class="td-reglement">
+            <div class="regl-tags">
+              <span class="regl-tag">MiFID 2</span>
+              <span class="regl-tag">SFDR</span>
+              <span class="regl-tag">CSRD</span>
+            </div>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="td-num">03</td>
+          <td class="td-title">
+            <div class="ctrl-title">Comptes débiteurs et surendettement</div>
+            <div class="ctrl-date">Nov. 2025</div>
+          </td>
+          <td class="td-objectif">Analyser le traitement des dossiers de surendettement : fichage FICP/FCC, gestion des mises en demeure et conformité des procédures d'archivage avec les obligations Banque de France.</td>
+          <td class="td-reglement">
+            <div class="regl-tags">
+              <span class="regl-tag">Code de la consommation</span>
+              <span class="regl-tag">Banque de France</span>
+            </div>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="td-num">04</td>
+          <td class="td-title">
+            <div class="ctrl-title">Classification LCB-FT et profils à risque</div>
+            <div class="ctrl-date">Nov. 2025</div>
+          </td>
+          <td class="td-objectif">Évaluer la segmentation de la clientèle avec une attention particulière aux personnes politiquement exposées (PPE) et aux profils à risque élevé. Vérification de la conformité des fichiers de classification.</td>
+          <td class="td-reglement">
+            <div class="regl-tags">
+              <span class="regl-tag">LCB-FT</span>
+              <span class="regl-tag">Lignes directrices ACPR</span>
+              <span class="regl-tag">Tracfin</span>
+            </div>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="td-num">05</td>
+          <td class="td-title">
+            <div class="ctrl-title">Formations réglementaires obligatoires</div>
+            <div class="ctrl-date">Nov. 2025</div>
+          </td>
+          <td class="td-objectif">Vérifier le respect des délais de complétion des modules obligatoires par l'ensemble des collaborateurs et évaluer la pertinence de la politique de formation au regard des exigences en vigueur.</td>
+          <td class="td-reglement">
+            <div class="regl-tags">
+              <span class="regl-tag">Politique interne</span>
+              <span class="regl-tag">Arrêté 3 nov. 2014</span>
+            </div>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="td-num">06</td>
+          <td class="td-title">
+            <div class="ctrl-title">Découverts et facilités de caisse</div>
+            <div class="ctrl-date">Déc. 2025</div>
+          </td>
+          <td class="td-objectif">Contrôler les modalités d'octroi, le paramétrage système et les taux débiteurs appliqués. Reconstitution manuelle des agios pour s'assurer du respect du taux d'usure réglementaire fixé par la Banque de France.</td>
+          <td class="td-reglement">
+            <div class="regl-tags">
+              <span class="regl-tag">Code de la consommation</span>
+              <span class="regl-tag">Taux d'usure — Banque de France</span>
+            </div>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="td-num">07</td>
+          <td class="td-title">
+            <div class="ctrl-title">Qualité des données — Milleis Vie</div>
+            <div class="ctrl-date">Déc. 2025</div>
+          </td>
+          <td class="td-objectif">Évaluer la robustesse et la cohérence des contrôles effectués par la Direction des risques de la filiale d'assurance. Vérification de la qualité des données utilisées pour le pilotage des risques assurantiels.</td>
+          <td class="td-reglement">
+            <div class="regl-tags">
+              <span class="regl-tag">Arrêté 3 nov. 2014</span>
+              <span class="regl-tag">ACPR</span>
+            </div>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="td-num">08</td>
+          <td class="td-title">
+            <div class="ctrl-title">Fonds en déshérence — loi Eckert</div>
+            <div class="ctrl-date">Jan. 2026</div>
+          </td>
+          <td class="td-objectif">Identifier les comptes et contrats inactifs suite à une recommandation de l'ACPR. Rapprochement de données historiques pour localiser les titulaires avant transfert à la Caisse des dépôts et consignations.</td>
+          <td class="td-reglement">
+            <div class="regl-tags">
+              <span class="regl-tag">Loi Eckert (2014)</span>
+              <span class="regl-tag">Recommandation ACPR</span>
+            </div>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="td-num">09</td>
+          <td class="td-title">
+            <div class="ctrl-title">Courtage en assurance vie</div>
+            <div class="ctrl-date">Jan. 2026</div>
+          </td>
+          <td class="td-objectif">Vérifier la conformité des pratiques de conseil dans la distribution des contrats d'assurance vie : documentation contractuelle, obligations d'information client et traçabilité des actes de courtage.</td>
+          <td class="td-reglement">
+            <div class="regl-tags">
+              <span class="regl-tag">Directive DDA</span>
+              <span class="regl-tag">Code des assurances</span>
+            </div>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="td-num">10</td>
+          <td class="td-title">
+            <div class="ctrl-title">Alertes Dianes — surveillance LCB-FT</div>
+            <div class="ctrl-date">Fév. 2026</div>
+          </td>
+          <td class="td-objectif">Contrôler le traitement des alertes de surveillance transactionnelle : traçabilité des décisions, délais de levée d'alerte et qualité des justifications documentées au regard des procédures LCB-FT internes.</td>
+          <td class="td-reglement">
+            <div class="regl-tags">
+              <span class="regl-tag">LCB-FT</span>
+              <span class="regl-tag">Lignes directrices ACPR</span>
+              <span class="regl-tag">Tracfin</span>
+            </div>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="td-num">11</td>
+          <td class="td-title">
+            <div class="ctrl-title">Gouvernance des risques — Solvabilité 2</div>
+            <div class="ctrl-date">Fév. 2026</div>
+          </td>
+          <td class="td-objectif">Évaluer le dispositif de gouvernance des risques assurantiels au regard du Pilier 2 de Solvabilité 2 : cartographie des risques, politique ORSA et cohérence entre appétit au risque déclaré et pratiques observées.</td>
+          <td class="td-reglement">
+            <div class="regl-tags">
+              <span class="regl-tag">Solvabilité 2 — Pilier 2</span>
+              <span class="regl-tag">ORSA</span>
+              <span class="regl-tag">ACPR</span>
+            </div>
+          </td>
+        </tr>
+
+      </tbody>
+    </table>
+
+    <!-- DOMAINES -->
+    <p class="section-heading">Répartition par domaine</p>
+    <div class="domains-section">
+      <div class="domain-block">
+        <div class="domain-name">Crédit</div>
+        <div class="domain-count">3</div>
+        <div class="domain-sub">Octroi, découverts, surendettement</div>
+      </div>
+      <div class="domain-block">
+        <div class="domain-name">LCB-FT</div>
+        <div class="domain-count">3</div>
+        <div class="domain-sub">Classification, alertes, fonds dormants</div>
+      </div>
+      <div class="domain-block">
+        <div class="domain-name">Assurance</div>
+        <div class="domain-count">3</div>
+        <div class="domain-sub">Qualité données, courtage, Solvabilité 2</div>
+      </div>
+      <div class="domain-block">
+        <div class="domain-name">ESG &amp; conformité</div>
+        <div class="domain-count">2</div>
+        <div class="domain-sub">Conseil ESG, formations obligatoires</div>
+      </div>
+    </div>
+
   </div>
 
-  <p class="section-heading">Détail des contrôles effectués</p>
-
-  <table class="controls-table">
-    <thead>
-      <tr>
-        <th>N°</th>
-        <th>Domaine</th>
-        <th>Objectif du contrôle</th>
-        <th>Réglementation(s)</th>
-      </tr>
-    </thead>
-    <tbody>
-
-      <tr>
-        <td class="td-num">01</td>
-        <td class="td-title">
-          <div class="ctrl-title">Filière crédit — octroi et délégations</div>
-          <div class="ctrl-date">Oct. 2025</div>
-        </td>
-        <td class="td-objectif">Vérifier le respect des délégations de pouvoirs et l'exhaustivité des modalités d'octroi pour l'ensemble des crédits accordés. Validation arithmétique des tableaux d'amortissement.</td>
-        <td class="td-reglement">
-          <div class="regl-tags">
-            <span class="regl-tag">Arrêté 3 nov. 2014</span>
-            <span class="regl-tag">Code monétaire et financier</span>
-          </div>
-        </td>
-      </tr>
-
-      <tr>
-        <td class="td-num">02</td>
-        <td class="td-title">
-          <div class="ctrl-title">Intégration des critères ESG dans le conseil</div>
-          <div class="ctrl-date">Oct. 2025</div>
-        </td>
-        <td class="td-objectif">Contrôler la collecte des préférences de durabilité dans les profils KYC et l'adéquation des produits proposés (fonds ISR, obligations vertes) aux convictions extra-financières des clients.</td>
-        <td class="td-reglement">
-          <div class="regl-tags">
-            <span class="regl-tag">MiFID 2</span>
-            <span class="regl-tag">SFDR</span>
-            <span class="regl-tag">CSRD</span>
-          </div>
-        </td>
-      </tr>
-
-      <tr>
-        <td class="td-num">03</td>
-        <td class="td-title">
-          <div class="ctrl-title">Comptes débiteurs et surendettement</div>
-          <div class="ctrl-date">Nov. 2025</div>
-        </td>
-        <td class="td-objectif">Analyser le traitement des dossiers de surendettement : fichage FICP/FCC, gestion des mises en demeure et conformité des procédures d'archivage avec les obligations Banque de France.</td>
-        <td class="td-reglement">
-          <div class="regl-tags">
-            <span class="regl-tag">Code de la consommation</span>
-            <span class="regl-tag">Banque de France</span>
-          </div>
-        </td>
-      </tr>
-
-      <tr>
-        <td class="td-num">04</td>
-        <td class="td-title">
-          <div class="ctrl-title">Classification LCB-FT et profils à risque</div>
-          <div class="ctrl-date">Nov. 2025</div>
-        </td>
-        <td class="td-objectif">Évaluer la segmentation de la clientèle avec une attention particulière aux personnes politiquement exposées (PPE) et aux profils à risque élevé. Vérification de la conformité des fichiers de classification.</td>
-        <td class="td-reglement">
-          <div class="regl-tags">
-            <span class="regl-tag">LCB-FT</span>
-            <span class="regl-tag">Lignes directrices ACPR</span>
-            <span class="regl-tag">Tracfin</span>
-          </div>
-        </td>
-      </tr>
-
-      <tr>
-        <td class="td-num">05</td>
-        <td class="td-title">
-          <div class="ctrl-title">Formations réglementaires obligatoires</div>
-          <div class="ctrl-date">Nov. 2025</div>
-        </td>
-        <td class="td-objectif">Vérifier le respect des délais de complétion des modules obligatoires par l'ensemble des collaborateurs et évaluer la pertinence de la politique de formation au regard des exigences en vigueur.</td>
-        <td class="td-reglement">
-          <div class="regl-tags">
-            <span class="regl-tag">Politique interne</span>
-            <span class="regl-tag">Arrêté 3 nov. 2014</span>
-          </div>
-        </td>
-      </tr>
-
-      <tr>
-        <td class="td-num">06</td>
-        <td class="td-title">
-          <div class="ctrl-title">Découverts et facilités de caisse</div>
-          <div class="ctrl-date">Déc. 2025</div>
-        </td>
-        <td class="td-objectif">Contrôler les modalités d'octroi, le paramétrage système et les taux débiteurs appliqués. Reconstitution manuelle des agios pour s'assurer du respect du taux d'usure réglementaire fixé par la Banque de France.</td>
-        <td class="td-reglement">
-          <div class="regl-tags">
-            <span class="regl-tag">Code de la consommation</span>
-            <span class="regl-tag">Taux d'usure — Banque de France</span>
-          </div>
-        </td>
-      </tr>
-
-      <tr>
-        <td class="td-num">07</td>
-        <td class="td-title">
-          <div class="ctrl-title">Qualité des données — Milleis Vie</div>
-          <div class="ctrl-date">Déc. 2025</div>
-        </td>
-        <td class="td-objectif">Évaluer la robustesse et la cohérence des contrôles effectués par la Direction des risques de la filiale d'assurance. Vérification de la qualité des données utilisées pour le pilotage des risques assurantiels.</td>
-        <td class="td-reglement">
-          <div class="regl-tags">
-            <span class="regl-tag">Arrêté 3 nov. 2014</span>
-            <span class="regl-tag">ACPR</span>
-          </div>
-        </td>
-      </tr>
-
-      <tr>
-        <td class="td-num">08</td>
-        <td class="td-title">
-          <div class="ctrl-title">Fonds en déshérence — loi Eckert</div>
-          <div class="ctrl-date">Jan. 2026</div>
-        </td>
-        <td class="td-objectif">Identifier les comptes et contrats inactifs suite à une recommandation de l'ACPR. Rapprochement de données historiques pour localiser les titulaires avant transfert à la Caisse des dépôts et consignations.</td>
-        <td class="td-reglement">
-          <div class="regl-tags">
-            <span class="regl-tag">Loi Eckert (2014)</span>
-            <span class="regl-tag">Recommandation ACPR</span>
-          </div>
-        </td>
-      </tr>
-
-      <tr>
-        <td class="td-num">09</td>
-        <td class="td-title">
-          <div class="ctrl-title">Courtage en assurance vie</div>
-          <div class="ctrl-date">Jan. 2026</div>
-        </td>
-        <td class="td-objectif">Vérifier la conformité des pratiques de conseil dans la distribution des contrats d'assurance vie : documentation contractuelle, obligations d'information client et traçabilité des actes de courtage.</td>
-        <td class="td-reglement">
-          <div class="regl-tags">
-            <span class="regl-tag">Directive DDA</span>
-            <span class="regl-tag">Code des assurances</span>
-          </div>
-        </td>
-      </tr>
-
-      <tr>
-        <td class="td-num">10</td>
-        <td class="td-title">
-          <div class="ctrl-title">Alertes Dianes — surveillance LCB-FT</div>
-          <div class="ctrl-date">Fév. 2026</div>
-        </td>
-        <td class="td-objectif">Contrôler le traitement des alertes de surveillance transactionnelle : traçabilité des décisions, délais de levée d'alerte et qualité des justifications documentées au regard des procédures LCB-FT internes.</td>
-        <td class="td-reglement">
-          <div class="regl-tags">
-            <span class="regl-tag">LCB-FT</span>
-            <span class="regl-tag">Lignes directrices ACPR</span>
-            <span class="regl-tag">Tracfin</span>
-          </div>
-        </td>
-      </tr>
-
-      <tr>
-        <td class="td-num">11</td>
-        <td class="td-title">
-          <div class="ctrl-title">Gouvernance des risques — Solvabilité 2</div>
-          <div class="ctrl-date">Fév. 2026</div>
-        </td>
-        <td class="td-objectif">Évaluer le dispositif de gouvernance des risques assurantiels au regard du Pilier 2 de Solvabilité 2 : cartographie des risques, politique ORSA et cohérence entre appétit au risque déclaré et pratiques observées.</td>
-        <td class="td-reglement">
-          <div class="regl-tags">
-            <span class="regl-tag">Solvabilité 2 — Pilier 2</span>
-            <span class="regl-tag">ORSA</span>
-            <span class="regl-tag">ACPR</span>
-          </div>
-        </td>
-      </tr>
-
-    </tbody>
-  </table>
-
-  <p class="section-heading">Répartition par domaine</p>
-
-  <div class="domains-section">
-    <div>
-      <div class="domain-name">Crédit</div>
-      <div class="domain-count">3</div>
-      <div class="domain-sub">Octroi, découverts, surendettement</div>
-    </div>
-    <div>
-      <div class="domain-name">LCB-FT</div>
-      <div class="domain-count">3</div>
-      <div class="domain-sub">Classification, alertes, fonds dormants</div>
-    </div>
-    <div>
-      <div class="domain-name">Assurance</div>
-      <div class="domain-count">3</div>
-      <div class="domain-sub">Qualité données, courtage, Solvabilité 2</div>
-    </div>
-    <div>
-      <div class="domain-name">ESG & conformité</div>
-      <div class="domain-count">2</div>
-      <div class="domain-sub">Conseil ESG, formations obligatoires</div>
-    </div>
-  </div>
-
+  <!-- FOOTER -->
   <div class="doc-footer">
-    <span class="footer-left">Enzo Despinoy — Master Finance, contrôle et data · EM Normandie 2026–2028</span>
+    <span class="footer-left">Enzo Despinoy — Master Finance &amp; Contrôle de gestion · EMLV 2026–2028</span>
     <span class="footer-right">Confidentiel · Usage recrutement uniquement</span>
   </div>
 
